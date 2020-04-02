@@ -1,0 +1,4 @@
+name: BetterCreepers
+version: 1.0
+main: org.unbreakable.BetterCreepers
+api-version: 1.13
