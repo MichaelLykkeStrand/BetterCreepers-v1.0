@@ -18,7 +18,6 @@ import org.bukkit.event.entity.ExplosionPrimeEvent;
  * @author Unbreakable
  */
 public class ExplosionPrimeListener implements Listener {
-
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     void ExplosionPrimeEvent(ExplosionPrimeEvent event) {
         Entity e = event.getEntity();
