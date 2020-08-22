@@ -24,14 +24,17 @@ public class ExplosionPrimeListener implements Listener {
         Entity e = event.getEntity();
         if (e instanceof Creeper) {
             Creeper creeper = (Creeper) e;
-            Location location = creeper.getLocation();
             if (!creeper.isPowered()) {
-                creeper.getWorld().createExplosion(location.getX(), location.getY(), location.getZ(), 3f, false, false, creeper);
+                Location location = creeper.getLocation();
+                creeper.remove();
+                creeper.getWorld().createExplosion(location, 3f, false, false);
+                event.setCancelled(true);
             } else {
-                creeper.getWorld().createExplosion(location.getX(), location.getY(), location.getZ(), 6f, false, false, creeper);
+                Location location = creeper.getLocation();
+                creeper.remove();
+                creeper.getWorld().createExplosion(location, 6f, false, false);
+                event.setCancelled(true);
             }
-            creeper.remove();
-            event.setCancelled(true);
         }
     }
 }
